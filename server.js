@@ -19,7 +19,6 @@ app.set('view engine', 'ejs');
 
 
 var routes = require('./api/routes/standingsRoute');
-var standings = require('./api/controllers/standingsController');
 routes(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,12 +29,16 @@ app.get('/',function(req,res){
 });
 
 var asData = {};
+var asScorersData = {};
 var elData = {};
 var dasData = {};
 var seData = {};
 
 axios.get(domain + '/as')
     .then(function(res){asData = res.data;})
+
+axios.get(domain + '/as/topscorers')
+    .then(function(res){asScorersData = res.data;})
     
 axios.get(domain + '/el')
     .then(function(res){elData = res.data;})

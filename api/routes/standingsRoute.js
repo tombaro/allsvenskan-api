@@ -6,6 +6,8 @@ module.exports = function(app) {
   // standings Routes
   app.route('/as')
     .get(standings.allsvenskan_standings)
+  app.route('/as/topscorers')
+    .get(standings.allsvenskan_topscorers)
   app.route('/el')
     .get(standings.elitettan_standings)
   app.route('/das')

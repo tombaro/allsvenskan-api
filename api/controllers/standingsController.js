@@ -39,6 +39,53 @@ exports.allsvenskan_standings = function(req, res) {
 	});
 };
 
+exports.allsvenskan_topscorers = function(req, res) {
+/* Scrape top scorers. */
+    x('http://www.svt.se/svttext/web/pages/351.html', '.root',
+    {
+        // Top scorers are divided into class C, W and C. Split them up and merge.
+        rowsC: ['.C'],
+        rowsW: ['.W']
+    })(function(err, obj){
+        if (err) {
+            res.send(err);
+        } else {      
+            var items = [];
+            // First get position and goals.
+            for (var i = 0; i < 12; i++) {
+                var current_pos = obj.rowsC[i];
+                i++;
+                var current_goals = obj.rowsC[i];
+                var tmp = {
+                    position: current_pos.substring(0,2).trim(),
+                    goals: current_goals.substring(0,2).trim()
+                };
+                items.push(tmp);
+            }
+            // Then get names and team.
+            var names = [];
+            for (var i = 2; i < 8; i++) {
+                var current = obj.rowsW[i];
+                var tmp = {
+                    name: current.substring(0,19).trim(),
+                    team: current.substring(19,32).trim(),
+                };
+                names.push(tmp);
+            }
+            // Merge all together.
+            for (let i = 0; i < items.length; i++) {
+                items[i].name = names[i].name;
+                items[i].team = names[i].team;
+            }
+
+            // Write to json
+            const to_string = '{ "result": { "round": "latest", "item":' + JSON.stringify(items) + '}}';
+            res.send(to_string);
+        }
+	});
+};
+
+
 exports.elitettan_standings = function(req, res) {
 /* Scrape the table. */
 	x('https://www.svt.se/svttext/web/pages/350.html', '.root', 
