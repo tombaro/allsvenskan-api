@@ -56,23 +56,23 @@ axios.get(domain + '/se')
 
 
 app.get('/allsvenskan', function(req,res){
-    res.render('tabell', {data: asData})
+    res.render('tabell', {data: JSON.parse(asData)})
 })
 
 app.get('/elitettan', function(req,res){
-    res.render('tabell', {data: elData})
+    res.render('tabell', {data: JSON.parse(elData)})
 })
 
 app.get('/damallsvenskan', function(req,res){
-    res.render('tabell', {data: dasData})
+    res.render('tabell', {data: JSON.parse(dasData)})
 })
 
 app.get('/superettan', function(req,res){
-    res.render('tabell', {data: seData})
+    res.render('tabell', {data: JSON.parse(seData)})
 })
 
 app.get('/allsvenskanbw', function(req,res){
-    res.render('bw', {data: asData})
+    res.render('bw', {data: JSON.parse(asData)})
 })
 
 app.listen(port);
