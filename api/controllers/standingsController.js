@@ -34,7 +34,7 @@ exports.allsvenskan_standings = function(req, res) {
             };
             // Write to json
             const to_string = '{ "result": { "round": "latest", "item":' + JSON.stringify(items) + '}}';
-            res.send(to_string);
+            res.json(to_string);
         }
 	});
 };
@@ -80,7 +80,7 @@ exports.allsvenskan_topscorers = function(req, res) {
 
             // Write to json
             const to_string = '{ "result": { "round": "latest", "item":' + JSON.stringify(items) + '}}';
-            res.send(to_string);
+            res.json(to_string);
         }
 	});
 };
@@ -159,7 +159,7 @@ exports.elitettan_standings = function(req, res) {
             var str = items.slice(0,16);
             // Write to json
             const to_string = '{ "result": { "round": "latest", "item":' + JSON.stringify(items) + '}}';
-            res.send(to_string);
+            res.json(to_string);
         }
 	});
 };
@@ -193,7 +193,7 @@ exports.damallsvenskan_standings = function(req, res) {
             };
             // Write to json
             const to_string = '{ "result": { "round": "latest", "item":' + JSON.stringify(items) + '}}';
-            res.send(to_string);
+            res.json(to_string);
         }
 	});
 };
@@ -227,7 +227,7 @@ exports.superettan_standings = function(req, res) {
             };
             // Write to json
             const to_string = '{ "result": { "round": "latest", "item":' + JSON.stringify(items) + '}}';
-            res.send(to_string);
+            res.json(to_string);
         }
 	});
 };
