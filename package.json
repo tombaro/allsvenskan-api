@@ -23,7 +23,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
-    "mongodb": "^3.1.0-beta4",
+    "mongodb": "^3.1.13",
     "mongoose": "^5.5.0",
     "mysql": "^2.15.0",
     "x-ray": "^2.3.3"
