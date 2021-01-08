@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express'),
 app = express(),
 port = process.env.PORT || 3000,
@@ -6,7 +8,7 @@ path = require('path'),
 ejs = require('ejs'),
 axios = require('axios');
 
-//Domain where API is hosted:
+// Domain where API is hosted:
 var domain = 'https://allsvenskan-api.herokuapp.com/';
 if (app.get('env') === 'development') {
     domain = 'http://localhost:3000';
@@ -16,7 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-
 
 var routes = require('./api/routes/standingsRoute');
 routes(app);
