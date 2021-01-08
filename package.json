@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "assert": "^1.4.1",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "body-parser": "^1.17.2",
     "ejs": "^2.6.1",
     "es6-promise": "^4.2.8",

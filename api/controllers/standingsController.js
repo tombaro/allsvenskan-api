@@ -94,14 +94,14 @@ function filterTableResults(rows){
     rows.forEach(team => {
         items.push({
             'position': team.children[0].textContent,
-            'name': team.children[2].textContent,
-            'games': team.children[4].textContent,
-            'wins': team.children[5].textContent,
-            'draws': team.children[6].textContent,
-            'losses': team.children[7].textContent,
-            'scored': team.children[8].textContent,
-            'condeded': team.children[9].textContent,
-            'diff': team.children[10].textContent,
+            'team': team.children[2].textContent,
+            'round': team.children[4].textContent,
+            'win': team.children[5].textContent,
+            'draw': team.children[6].textContent,
+            'loss': team.children[7].textContent,
+            'gm': team.children[8].textContent,
+            'im': team.children[9].textContent,
+            'ms': team.children[10].textContent,
             'points': team.children[11].textContent,
         });
     });
