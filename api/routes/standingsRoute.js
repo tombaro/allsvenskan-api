@@ -2,7 +2,7 @@
 module.exports = function(app) {
   var standings = require('../controllers/standingsController');
 
-
+  // TODO: Setup version in api-route.
   // standings Routes
   app.route('/as')
     .get(standings.allsvenskan_standings)
