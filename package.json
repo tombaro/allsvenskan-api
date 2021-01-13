@@ -2,9 +2,6 @@
   "name": "allsvenskan-api",
   "version": "0.1.0",
   "description": "Provide apis for allsvenskan",
-  "engines": {
-    "node": "7.6"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tombaro/allsvenskan-api.git"
@@ -24,7 +21,6 @@
     "es6-promise": "^4.2.8",
     "express": "^4.16.3",
     "isomorphic-fetch": "^3.0.0",
-    "jquery": "^3.5.1",
     "jsdom": "^16.4.0"
   },
   "devDependencies": {
