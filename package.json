@@ -1,6 +1,6 @@
 {
   "name": "allsvenskan-api",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Provide apis for allsvenskan",
   "engines": {
     "node": "6.9.1"
