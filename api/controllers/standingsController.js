@@ -7,7 +7,7 @@ var { JSDOM } = jsdom;
 /**
  * Fetch and output Allsvenskan current standings.
  * @param {any} req - The request.
- * @param {any} res - The result.
+ * @param {any} res - The response.
  */
 exports.allsvenskan_standings = function(req, res) {
     outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/allsvenskan-herr-2020/82492/');
@@ -16,7 +16,7 @@ exports.allsvenskan_standings = function(req, res) {
 /**
  * Fetch and output Damallsvenskan current standings.
  * @param {any} req - The request.
- * @param {any} res - The result.
+ * @param {any} res - The response.
  */
 exports.damallsvenskan_standings = function(req, res) {
     outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/obos-damallsvenskan-2020/82420/');
@@ -25,7 +25,7 @@ exports.damallsvenskan_standings = function(req, res) {
 /**
  * Fetch and output Elitettan current standings.
  * @param {any} req - The request.
- * @param {any} res - The result.
+ * @param {any} res - The response.
  */
 exports.elitettan_standings = function(req, res) {
     outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/elitettan-2020/82419/');
@@ -34,7 +34,7 @@ exports.elitettan_standings = function(req, res) {
 /**
  * Fetch and output Superettan current standings.
  * @param {any} req - The request.
- * @param {any} res - The result.
+ * @param {any} res - The response.
  */
 exports.superettan_standings = function(req, res) {
     outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/superettan-2020/82493/');
@@ -43,7 +43,7 @@ exports.superettan_standings = function(req, res) {
 /**
  * Fetch and output Allsvenskans top scorers.
  * @param {any} req - The request.
- * @param {any} res - The result.
+ * @param {any} res - The response.
  */
 exports.allsvenskan_topscorers = function(req, res) {
     const options = { includeNodeLocations: true };
@@ -64,7 +64,7 @@ exports.allsvenskan_topscorers = function(req, res) {
 
 /**
  * Fetch and output a table.
- * @param {any} res - The result.
+ * @param {any} res - The response.
  * @param {string} tableUrl - The url to the table. 
  */
 function outputStandings(res, tableUrl) {
@@ -111,8 +111,8 @@ function filterTableResults(rows){
 
 /**
  * Write items to json.
- * @param {any} res - The result.
- * @param {*} items - The items to output.
+ * @param {any} res - The response.
+ * @param {array} items - The items to output.
  */
 function outputResultItemsToJson(res, items) {
     const result = {
