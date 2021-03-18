@@ -5,13 +5,13 @@ module.exports = function(app) {
   // TODO: Setup version in api-route.
   // standings Routes
   app.route('/as')
-    .get(standings.allsvenskan_standings)
+    .get(standings.allsvenskan_standings);
   app.route('/as/topscorers')
-    .get(standings.allsvenskan_topscorers)
+    .get(standings.allsvenskan_topscorers);
   app.route('/el')
-    .get(standings.elitettan_standings)
+    .get(standings.elitettan_standings);
   app.route('/das')
-    .get(standings.damallsvenskan_standings)  
+    .get(standings.damallsvenskan_standings);
   app.route('/se')
-    .get(standings.superettan_standings)
+    .get(standings.superettan_standings);
 };

@@ -2,7 +2,7 @@
 
 var express = require('express'),
 app = express(),
-port = process.env.PORT || 3000,
+port = process.env.PORT || 3002,
 bodyParser = require('body-parser'),
 path = require('path'),
 ejs = require('ejs'),
@@ -11,7 +11,7 @@ axios = require('axios');
 // Domain where API is hosted:
 var domain = 'https://allsvenskan-api.herokuapp.com/';
 if (app.get('env') === 'development') {
-    domain = 'http://localhost:3000';
+    domain = 'http://localhost:3002';
 }
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,13 +40,13 @@ axios.get(domain + '/as')
 
 axios.get(domain + '/as/topscorers')
     .then(function(res){asScorersData = res.data;})
-    
+
 axios.get(domain + '/el')
     .then(function(res){elData = res.data;})
-    
+
 axios.get(domain + '/das')
     .then(function(res){dasData = res.data;})
-    
+
 axios.get(domain + '/se')
     .then(function(res){seData = res.data;})
 
