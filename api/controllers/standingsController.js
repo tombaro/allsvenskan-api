@@ -10,7 +10,7 @@ var { JSDOM } = jsdom;
  * @param {any} res - The response.
  */
 exports.allsvenskan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/allsvenskan-herr-2020/82492/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/allsvenskan-herr-2021/88307/');
 }
 
 /**
@@ -19,7 +19,7 @@ exports.allsvenskan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.damallsvenskan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/obos-damallsvenskan-2020/82420/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/obos-damallsvenskan-2021/88069/');
 }
 
 /**
@@ -28,7 +28,7 @@ exports.damallsvenskan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.elitettan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/elitettan-2020/82419/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/elitettan-2021/88068/');
 }
 
 /**
@@ -37,7 +37,7 @@ exports.elitettan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.superettan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/superettan-2020/82493/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/superettan-2021/88308/');
 }
 
 /**
@@ -48,7 +48,7 @@ exports.superettan_standings = function(req, res) {
 exports.allsvenskan_topscorers = function(req, res) {
     const options = { includeNodeLocations: true };
     (async () => {
-        const response = await fetch('https://www.svenskfotboll.se/serier-cuper/spelarstatistik/allsvenskan-herr-2020/82492/');
+        const response = await fetch('https://www.svenskfotboll.se/serier-cuper/spelarstatistik/allsvenskan-herr-2021/88307/');
         if ( response.ok ) {
             const text = await response.text();
             const dom = await new JSDOM(text, options);
@@ -121,7 +121,7 @@ function outputResultItemsToJson(res, items) {
             item: items,
         }
     }
-    res.json(result);
+    res.status(200).json(result);
 }
 
 /**
