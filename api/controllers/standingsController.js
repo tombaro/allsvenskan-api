@@ -10,7 +10,7 @@ var { JSDOM } = jsdom;
  * @param {any} res - The response.
  */
 exports.allsvenskan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/allsvenskan-2022/97366/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/allsvenskan-2023/101999/');
 }
 
 /**
@@ -19,7 +19,7 @@ exports.allsvenskan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.damallsvenskan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/obos-damallsvenskan-2022/96548/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/obos-damallsvenskan-2023/102022/');
 }
 
 /**
@@ -28,7 +28,7 @@ exports.damallsvenskan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.elitettan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/elitettan-2022/96594/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/elitettan-2023/102023/');
 }
 
 /**
@@ -37,7 +37,7 @@ exports.elitettan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.superettan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/superettan-2022/97363/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/superettan-2023/102000/');
 }
 
 /**
@@ -48,7 +48,7 @@ exports.superettan_standings = function(req, res) {
 exports.allsvenskan_topscorers = function(req, res) {
     const options = { includeNodeLocations: true };
     (async () => {
-        const response = await fetch('https://www.svenskfotboll.se/serier-cuper/spelarstatistik/allsvenskan-2022/97366/');
+        const response = await fetch('https://www.svenskfotboll.se/serier-cuper/spelarstatistik/101999/');
         if ( response.ok ) {
             const text = await response.text();
             const dom = await new JSDOM(text, options);
