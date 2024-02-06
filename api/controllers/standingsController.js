@@ -10,7 +10,7 @@ var { JSDOM } = jsdom;
  * @param {any} res - The response.
  */
 exports.allsvenskan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/allsvenskan-2022/97366/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/allsvenskan-2024/115560/');
 }
 
 /**
@@ -19,7 +19,7 @@ exports.allsvenskan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.damallsvenskan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/obos-damallsvenskan-2022/96548/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/obos-damallsvenskan-2024/115477/');
 }
 
 /**
@@ -28,7 +28,7 @@ exports.damallsvenskan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.elitettan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/elitettan-2022/96594/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/elitettan-2024/115475/');
 }
 
 /**
@@ -37,7 +37,7 @@ exports.elitettan_standings = function(req, res) {
  * @param {any} res - The response.
  */
 exports.superettan_standings = function(req, res) {
-    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/superettan-2022/97363/');
+    outputStandings(res, 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/superettan-2024/115526/');
 }
 
 /**
@@ -139,14 +139,16 @@ function filterScorerResults(rows){
         const playerRows = playerFragment.querySelectorAll('.table__player-row');
         const statRows = playerFragment.querySelectorAll('.table__cell-small');
 
-        items.push({
-            position: position++,
-            name: playerRows[0].textContent.replace(/(\t|\n)/g, ''), // Remove tabs and stuff in cell.
-            team: playerRows[1].textContent.replace(/(\t|\n)/g, ''), // Remove tabs and stuff in cell.
-            goals: statRows[0].textContent,
-            assists: statRows[1].textContent,
-            games: statRows[2].textContent,
-        });
+        if( playerRows > 0 ) {
+            items.push({
+                position: position++,
+                name: playerRows[0].textContent.replace(/(\t|\n)/g, ''), // Remove tabs and stuff in cell.
+                team: playerRows[1].textContent.replace(/(\t|\n)/g, ''), // Remove tabs and stuff in cell.
+                goals: statRows[0].textContent,
+                assists: statRows[1].textContent,
+                games: statRows[2].textContent,
+            });
+        }
     }
 
     return items;
